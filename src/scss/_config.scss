@@ -1,0 +1,37 @@
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+// $primary-color: #e0ffff;
+$primary-color: blue;
+
+$secondary-color:#ff8700;
+
+// set text color based on bg
+@function set-text-color($color){
+  @if (lightness($color)> 70){
+    @return #333;
+  }@else{
+      @return #fff;
+    
+  }
+}
+
+// set background and text color
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+  
+}
+
+//Margin and Padding
+
+$spaceamount:(1,2,3,4,5);
+@each $space in $spaceamount{
+  .m-#{space}{
+    margin: #{space}rem;
+  }
+  .my-#{space}{
+    padding: #{$space}rem 0;
+  }
+}
